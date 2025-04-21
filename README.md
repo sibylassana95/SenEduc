@@ -4,7 +4,11 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 
 ## Fonctionnalités
 
-- 🧮 4 opérations mathématiques : addition, soustraction, multiplication et division
+- 🧮 4 opérations mathématiques avec génération intelligente des questions :
+  - Addition : Nombres variés pour une pratique complète
+  - Soustraction : Questions diversifiées avec résultats positifs
+  - Multiplication : Tables de multiplication personnalisables
+  - Division : Divisions exactes pour une meilleure compréhension
 - 🎯 Sélection flexible des nombres à pratiquer (1 à 10)
 - 🎨 Interface colorée et animations attrayantes
 - 📊 Suivi des statistiques en temps réel
@@ -17,6 +21,7 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 
 ## Caractéristiques pédagogiques
 
+- **Soustraction améliorée** : Génération intelligente de questions variées avec des nombres différents
 - **Division intelligente** : Génération de divisions avec des résultats entiers pour une meilleure compréhension
 - **Progression adaptée** : Les soustractions évitent les résultats négatifs
 - **Feedback immédiat** : Animations et effets visuels pour encourager l'apprentissage
