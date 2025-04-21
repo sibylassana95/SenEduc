@@ -8,9 +8,19 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 - 🎯 Sélection flexible des nombres à pratiquer (1 à 10)
 - 🎨 Interface colorée et animations attrayantes
 - 📊 Suivi des statistiques en temps réel
+- ⏱️ Chronomètre pour suivre le temps de pratique
+- 🔥 Système de séries de réussites avec meilleur score
+- ⌨️ Support complet du clavier pour une utilisation rapide
 - 📝 Historique des erreurs pour un meilleur apprentissage
 - 🎉 Effets de confettis pour célébrer les bonnes réponses
 - 📱 Design responsive adapté à tous les écrans
+
+## Caractéristiques pédagogiques
+
+- **Division intelligente** : Génération de divisions avec des résultats entiers pour une meilleure compréhension
+- **Progression adaptée** : Les soustractions évitent les résultats négatifs
+- **Feedback immédiat** : Animations et effets visuels pour encourager l'apprentissage
+- **Suivi des progrès** : Statistiques détaillées et historique des erreurs
 
 ## Technologies utilisées
 
@@ -25,8 +35,14 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 1. Choisissez une opération mathématique (addition, soustraction, multiplication ou division)
 2. Sélectionnez les nombres que vous souhaitez pratiquer
 3. Cliquez sur "Démarrer" pour commencer
-4. Répondez aux questions en utilisant le pavé numérique
-5. Suivez vos progrès avec les statistiques en temps réel
+4. Répondez aux questions en utilisant :
+   - Le pavé numérique à l'écran
+   - Ou le clavier de votre ordinateur (touches 0-9, Entrée pour valider, Retour arrière pour effacer)
+5. Suivez vos progrès avec :
+   - Les statistiques en temps réel
+   - Le chronomètre
+   - Votre série actuelle de bonnes réponses
+   - Votre meilleur score
 
 ## Installation
 

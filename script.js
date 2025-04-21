@@ -85,53 +85,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     function generateQuestion() {
-      if (selectedTables.length === 0 || !selectedOperation) return null;
-      let newQuestion;
-      do {
-        const num1 = selectedTables[Math.floor(Math.random() * selectedTables.length)];
-        const num2 = Math.floor(Math.random() * 10) + 1;
-        
-        switch (selectedOperation) {
-          case 'addition':
-            newQuestion = {
-              num1, num2,
-              operator: '+',
-              answer: num1 + num2
-            };
-            break;
-          case 'subtraction':
-            newQuestion = {
-              num1: num1 + num2,
-              num2: num2,
-              operator: '-',
-              answer: num1
-            };
-            break;
-          case 'multiplication':
-            newQuestion = {
-              num1, num2,
-              operator: '×',
-              answer: num1 * num2
-            };
-            break;
-          case 'division':
-            newQuestion = {
-              num1: num1 * num2,
-              num2: num2,
-              operator: '÷',
-              answer: num1
-            };
-            break;
-        }
-      } while (
-        lastQuestion &&
-        lastQuestion.num1 === newQuestion.num1 &&
-        lastQuestion.num2 === newQuestion.num2
-      );
-  
-      lastQuestion = newQuestion;
-      return newQuestion;
-    }
+        if (selectedTables.length === 0 || !selectedOperation) return null;
+        let newQuestion;
+        do {
+          const num1 = selectedTables[Math.floor(Math.random() * selectedTables.length)];
+          let num2;
+          
+          switch (selectedOperation) {
+            case 'addition':
+              num2 = Math.floor(Math.random() * 10) + 1;
+              newQuestion = {
+                num1, num2,
+                operator: '+',
+                answer: num1 + num2
+              };
+              break;
+            case 'subtraction':
+              num2 = Math.floor(Math.random() * num1) + 1; // Pour éviter les résultats négatifs
+              newQuestion = {
+                num1: num1 + num2,
+                num2: num2,
+                operator: '-',
+                answer: num1
+              };
+              break;
+            case 'multiplication':
+              num2 = Math.floor(Math.random() * 10) + 1;
+              newQuestion = {
+                num1, num2,
+                operator: '×',
+                answer: num1 * num2
+              };
+              break;
+            case 'division':
+              num2 = Math.floor(Math.random() * 10) + 1;
+              newQuestion = {
+                num1: num1 * num2, // Le dividende est le produit pour avoir une division exacte
+                num2: num1, // Le diviseur est le nombre sélectionné
+                operator: '÷',
+                answer: num2 // Le quotient sera varié
+              };
+              break;
+          }
+        } while (
+          lastQuestion &&
+          lastQuestion.num1 === newQuestion.num1 &&
+          lastQuestion.num2 === newQuestion.num2
+        );
+    
+        lastQuestion = newQuestion;
+        return newQuestion;
+      }
   
     startBtn.addEventListener('click', () => {
       if (selectedTables.length === 0) {
