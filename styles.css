@@ -35,7 +35,7 @@ h1 {
   background: #3498db;
   color: white;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
   box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
 }
 
@@ -45,8 +45,9 @@ h1 {
 }
 
 .operation-btn.selected {
-  background: #2980b9;
+  background: #27ae60;
   transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
 }
 
 .table-selection {
