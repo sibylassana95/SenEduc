@@ -21,6 +21,19 @@
     <div class="container">
         <h1 class="animate__animated animate__bounce">SenEduc</h1>
 
+        <div class="mode-selection">
+            <h2>Choisir le mode :</h2>
+            <button class="mode-btn selected" data-mode="practice">Mode Pratique</button>
+            <button class="mode-btn" data-mode="timed">Mode Chronométré</button>
+        </div>
+
+        <div id="timer" style="display: none;">
+            <div class="timer-container">
+                <div class="timer-bar"></div>
+            </div>
+            <div class="timer-text">Temps restant : <span id="time-left">20</span>s</div>
+        </div>
+
         <div class="difficulty-selection">
             <h2>Choisir la difficulté :</h2>
             <button class="difficulty-btn" data-difficulty="easy">Facile</button>
