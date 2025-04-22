@@ -12,19 +12,23 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 - 🎯 Sélection flexible des nombres à pratiquer (1 à 10)
 - 🎨 Interface colorée et animations attrayantes
 - 📊 Suivi des statistiques en temps réel
-- ⏱️ Chronomètre pour suivre le temps de pratique
 - 🔥 Système de séries de réussites avec meilleur score
 - ⌨️ Support complet du clavier pour une utilisation rapide
 - 📝 Historique des erreurs pour un meilleur apprentissage
 - 🎉 Effets de confettis pour célébrer les bonnes réponses
-- 📱 Design responsive adapté à tous les écrans
+- 🌙 Mode sombre/clair pour un confort visuel optimal
+- 📱 Design responsive adapté à tous les écrans (mobile, tablette, PC)
+- 🔊 Effets sonores pour une expérience interactive
 
 ## Caractéristiques pédagogiques
 
 - **Soustraction améliorée** : Génération intelligente de questions variées avec des nombres différents
 - **Division intelligente** : Génération de divisions avec des résultats entiers pour une meilleure compréhension
 - **Progression adaptée** : Les soustractions évitent les résultats négatifs
-- **Feedback immédiat** : Animations et effets visuels pour encourager l'apprentissage
+- **Feedback immédiat**
+  - Animations et effets visuels
+  - Sons de réussite et d'erreur
+  - Confettis pour les bonnes réponses
 - **Suivi des progrès** : Statistiques détaillées et historique des erreurs
 
 ## Technologies utilisées
@@ -34,6 +38,8 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 - JavaScript (Vanilla)
 - Animate.css pour les animations
 - Canvas Confetti pour les effets de célébration
+- Web Audio API pour les effets sonores
+- Local Storage pour les préférences utilisateur
 
 ## Comment utiliser
 
@@ -45,7 +51,6 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
    - Ou le clavier de votre ordinateur (touches 0-9, Entrée pour valider, Retour arrière pour effacer)
 5. Suivez vos progrès avec :
    - Les statistiques en temps réel
-   - Le chronomètre
    - Votre série actuelle de bonnes réponses
    - Votre meilleur score
 
@@ -79,7 +84,6 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 ## Licence
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
 
 ---
 

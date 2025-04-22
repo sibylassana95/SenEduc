@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorList = document.getElementById('error-list');
   const correctSound = document.getElementById('correctSound');
   const incorrectSound = document.getElementById('incorrectSound');
+  const themeToggle = document.getElementById('theme-toggle');
 
   let selectedOperation = null;
   let selectedTables = [];
@@ -30,6 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let errorHistoryList = [];
   let streak = 0;
   let bestStreak = 0;
+
+  // Gestion du thème
+  const theme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
 
   // Fonction pour jouer les sons
   function playSound(isCorrect) {
@@ -96,58 +108,58 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function generateQuestion() {
-      if (selectedTables.length === 0 || !selectedOperation) return null;
-      let newQuestion;
-      do {
-        const num1 = selectedTables[Math.floor(Math.random() * selectedTables.length)];
-        let num2;
-        
-        switch (selectedOperation) {
-          case 'addition':
-            num2 = Math.floor(Math.random() * 10) + 1;
-            newQuestion = {
-              num1, num2,
-              operator: '+',
-              answer: num1 + num2
-            };
-            break;
-          case 'subtraction':
-            const maxNum = Math.max(...selectedTables);
-            num2 = Math.floor(Math.random() * maxNum) + 1;
-            const result = Math.floor(Math.random() * (maxNum - num2 + 1)) + num2;
-            newQuestion = {
-              num1: result,
-              num2: num2,
-              operator: '-',
-              answer: result - num2
-            };
-            break;
-          case 'multiplication':
-            num2 = Math.floor(Math.random() * 10) + 1;
-            newQuestion = {
-              num1, num2,
-              operator: '×',
-              answer: num1 * num2
-            };
-            break;
-          case 'division':
-            num2 = Math.floor(Math.random() * 10) + 1;
-            newQuestion = {
-              num1: num1 * num2,
-              num2: num1,
-              operator: '÷',
-              answer: num2
-            };
-            break;
-        }
-      } while (
-        lastQuestion &&
-        lastQuestion.num1 === newQuestion.num1 &&
-        lastQuestion.num2 === newQuestion.num2
-      );
-  
-      lastQuestion = newQuestion;
-      return newQuestion;
+    if (selectedTables.length === 0 || !selectedOperation) return null;
+    let newQuestion;
+    do {
+      const num1 = selectedTables[Math.floor(Math.random() * selectedTables.length)];
+      let num2;
+      
+      switch (selectedOperation) {
+        case 'addition':
+          num2 = Math.floor(Math.random() * 10) + 1;
+          newQuestion = {
+            num1, num2,
+            operator: '+',
+            answer: num1 + num2
+          };
+          break;
+        case 'subtraction':
+          const maxNum = Math.max(...selectedTables);
+          num2 = Math.floor(Math.random() * maxNum) + 1;
+          const result = Math.floor(Math.random() * (maxNum - num2 + 1)) + num2;
+          newQuestion = {
+            num1: result,
+            num2: num2,
+            operator: '-',
+            answer: result - num2
+          };
+          break;
+        case 'multiplication':
+          num2 = Math.floor(Math.random() * 10) + 1;
+          newQuestion = {
+            num1, num2,
+            operator: '×',
+            answer: num1 * num2
+          };
+          break;
+        case 'division':
+          num2 = Math.floor(Math.random() * 10) + 1;
+          newQuestion = {
+            num1: num1 * num2,
+            num2: num1,
+            operator: '÷',
+            answer: num2
+          };
+          break;
+      }
+    } while (
+      lastQuestion &&
+      lastQuestion.num1 === newQuestion.num1 &&
+      lastQuestion.num2 === newQuestion.num2
+    );
+
+    lastQuestion = newQuestion;
+    return newQuestion;
   }
 
   startBtn.addEventListener('click', () => {
@@ -179,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
     successRate.textContent = rate;
 
-    // Mise à jour de l'affichage des séries
     const streakDisplay = document.querySelector('.streak-display');
     if (streakDisplay) {
       streakDisplay.innerHTML = `
@@ -270,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateStats();
   });
+
   function nextQuestion() {
     currentQuestion = generateQuestion();
     if (currentQuestion) {
