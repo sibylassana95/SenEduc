@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const successRate = document.getElementById('success-rate');
   const errorHistory = document.getElementById('error-history');
   const errorList = document.getElementById('error-list');
+  const correctSound = document.getElementById('correctSound');
+  const incorrectSound = document.getElementById('incorrectSound');
 
   let selectedOperation = null;
   let selectedTables = [];
@@ -28,6 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let errorHistoryList = [];
   let streak = 0;
   let bestStreak = 0;
+
+  // Fonction pour jouer les sons
+  function playSound(isCorrect) {
+    const sound = isCorrect ? correctSound : incorrectSound;
+    sound.currentTime = 0;
+    sound.play().catch(error => console.log('Erreur de lecture audio:', error));
+  }
 
   // Animation des boutons au survol
   const buttons = document.querySelectorAll('button');
@@ -228,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stats.success++;
       streak++;
       bestStreak = Math.max(streak, bestStreak);
+      playSound(true);
       confetti({
         particleCount: 100,
         spread: 70,
@@ -242,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       stats.errors++;
       streak = 0;
+      playSound(false);
       emoji.textContent = '😢';
       resultText.innerHTML = `La bonne réponse était ${currentQuestion.num1} ${currentQuestion.operator} ${currentQuestion.num2} = <span class="correct-answer">${currentQuestion.answer}</span>`;
       questionDiv.classList.add('animate__animated', 'animate__shakeX');
@@ -259,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateStats();
   });
-
   function nextQuestion() {
     currentQuestion = generateQuestion();
     if (currentQuestion) {
