@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SenEduc - Apprendre les mathématiques</title>
@@ -10,94 +10,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <audio id="correctSound" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" preload="auto"></audio>
     <audio id="incorrectSound" src="https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3" preload="auto"></audio>
-  </head>
-  <body>
+</head>
+<body>
     <div class="theme-switch">
-      <button id="theme-toggle">
-        <span class="light-icon">☀️</span>
-        <span class="dark-icon">🌙</span>
-      </button>
+        <button id="theme-toggle">
+            <span class="light-icon">☀️</span>
+            <span class="dark-icon">🌙</span>
+        </button>
     </div>
     <div class="container">
-      <h1 class="animate__animated animate__bounce">SenEduc</h1>
-      
-      <div class="operation-selection">
-        <h2>Choisir l'opération :</h2>
-        <div class="operation-buttons">
-          <button class="operation-btn" data-operation="addition">Addition (+)</button>
-          <button class="operation-btn" data-operation="subtraction">Soustraction (-)</button>
-          <button class="operation-btn" data-operation="multiplication">Multiplication (×)</button>
-          <button class="operation-btn" data-operation="division">Division (÷)</button>
-        </div>
-      </div>
+        <h1 class="animate__animated animate__bounce">SenEduc</h1>
 
-      <div class="table-selection">
-        <h2>Choisir les nombres :</h2>
-        <div class="number-buttons">
-          <button id="select-all-btn" class="table-btn special-btn">
-            Toutes
-          </button>
-          <button class="table-btn" data-number="1">1</button>
-          <button class="table-btn" data-number="2">2</button>
-          <button class="table-btn" data-number="3">3</button>
-          <button class="table-btn" data-number="4">4</button>
-          <button class="table-btn" data-number="5">5</button>
-          <button class="table-btn" data-number="6">6</button>
-          <button class="table-btn" data-number="7">7</button>
-          <button class="table-btn" data-number="8">8</button>
-          <button class="table-btn" data-number="9">9</button>
-          <button class="table-btn" data-number="10">10</button>
-        </div>
-      </div>
-
-      <button id="start-btn" class="animate__animated animate__pulse animate__infinite">Démarrer</button>
-
-      <div id="stats" style="display: none">
-        <div class="stats-container">
-          <div class="stat-item">
-            Questions : <span id="total-count">0</span>
-          </div>
-          <div class="stat-item success">
-            Réussites : <span id="success-count">0</span> (<span id="success-rate">0</span>%)
-          </div>
-          <div class="stat-item error">
-            Erreurs : <span id="error-count">0</span>
-          </div>
-        </div>
-      </div>
-
-      <div id="game-area" style="display: none">
-        <div id="question" class="animate__animated">...</div>
-
-        <div id="result" style="display: none">
-          <p id="result-text"></p>
-          <div id="emoji"></div>
-          <div id="progress-container">
-            <div id="progress-bar"></div>
-          </div>
+        <div class="difficulty-selection">
+            <h2>Choisir la difficulté :</h2>
+            <button class="difficulty-btn" data-difficulty="easy">Facile</button>
+            <button class="difficulty-btn" data-difficulty="medium">Moyen</button>
+            <button class="difficulty-btn" data-difficulty="hard">Difficile</button>
         </div>
 
-        <div class="numpad">
-          <button class="num-btn animate__animated">1</button>
-          <button class="num-btn animate__animated">2</button>
-          <button class="num-btn animate__animated">3</button>
-          <button class="num-btn animate__animated">4</button>
-          <button class="num-btn animate__animated">5</button>
-          <button class="num-btn animate__animated">6</button>
-          <button class="num-btn animate__animated">7</button>
-          <button class="num-btn animate__animated">8</button>
-          <button class="num-btn animate__animated">9</button>
-          <button id="clear-btn" class="animate__animated">C</button>
-          <button class="num-btn animate__animated">0</button>
-          <button id="validate-btn" class="animate__animated">✓</button>
+        <div class="operation-selection">
+            <h2>Choisir l'opération :</h2>
+            <div class="operation-buttons">
+                <button class="operation-btn" data-operation="addition">Addition (+)</button>
+                <button class="operation-btn" data-operation="subtraction">Soustraction (-)</button>
+                <button class="operation-btn" data-operation="multiplication">Multiplication (×)</button>
+                <button class="operation-btn" data-operation="division">Division (÷)</button>
+            </div>
         </div>
-      </div>
-      
-      <div id="error-history" style="display: none">
-        <h2>Voir mes erreurs <span class="arrow">▼</span></h2>
-        <div id="error-list"></div>
-      </div>
+
+        <div class="table-selection">
+            <h2>Choisir les nombres :</h2>
+            <div class="number-buttons">
+                <button id="select-all-btn" class="table-btn special-btn">Toutes</button>
+                <button class="table-btn" data-number="1">1</button>
+                <button class="table-btn" data-number="2">2</button>
+                <button class="table-btn" data-number="3">3</button>
+                <button class="table-btn" data-number="4">4</button>
+                <button class="table-btn" data-number="5">5</button>
+                <button class="table-btn" data-number="6">6</button>
+                <button class="table-btn" data-number="7">7</button>
+                <button class="table-btn" data-number="8">8</button>
+                <button class="table-btn" data-number="9">9</button>
+                <button class="table-btn" data-number="10">10</button>
+            </div>
+        </div>
+
+        <button id="start-btn" class="animate__animated animate__pulse animate__infinite">Démarrer</button>
+
+        <div id="stats" style="display: none">
+            <div class="stats-container">
+                <div class="stat-item">Questions : <span id="total-count">0</span></div>
+                <div class="stat-item success">Réussites : <span id="success-count">0</span> (<span id="success-rate">0</span>%)</div>
+                <div class="stat-item error">Erreurs : <span id="error-count">0</span></div>
+            </div>
+        </div>
+
+        <div id="game-area" style="display: none">
+            <div id="question" class="animate__animated">...</div>
+            <div id="result" style="display: none">
+                <p id="result-text"></p>
+                <div id="emoji"></div>
+                <div id="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="numpad">
+                <button class="num-btn animate__animated">1</button>
+                <button class="num-btn animate__animated">2</button>
+                <button class="num-btn animate__animated">3</button>
+                <button class="num-btn animate__animated">4</button>
+                <button class="num-btn animate__animated">5</button>
+                <button class="num-btn animate__animated">6</button>
+                <button class="num-btn animate__animated">7</button>
+                <button class="num-btn animate__animated">8</button>
+                <button class="num-btn animate__animated">9</button>
+                <button id="clear-btn" class="animate__animated">C</button>
+                <button class="num-btn animate__animated">0</button>
+                <button id="validate-btn" class="animate__animated">✓</button>
+            </div>
+        </div>
+        
+        <div id="error-history" style="display: none">
+            <h2>Voir mes erreurs <span class="arrow">▼</span></h2>
+            <div id="error-list"></div>
+        </div>
     </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

@@ -2,6 +2,10 @@
 
 SenEduc est une application web interactive conçue pour aider les enfants à apprendre et pratiquer les opérations mathématiques de base (addition, soustraction, multiplication et division) de manière ludique et engageante.
 
+## Nouveautés
+
+- 🎲 **Modes de difficulté** : Choisissez entre Facile, Moyen et Difficile pour ajuster la complexité des questions, permettant ainsi une expérience d'apprentissage personnalisée.
+
 ## Fonctionnalités
 
 - 🧮 4 opérations mathématiques avec génération intelligente des questions :
@@ -45,11 +49,12 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 
 1. Choisissez une opération mathématique (addition, soustraction, multiplication ou division)
 2. Sélectionnez les nombres que vous souhaitez pratiquer
-3. Cliquez sur "Démarrer" pour commencer
-4. Répondez aux questions en utilisant :
+3. Choisissez le niveau de difficulté (Facile, Moyen, Difficile)
+4. Cliquez sur "Démarrer" pour commencer
+5. Répondez aux questions en utilisant :
    - Le pavé numérique à l'écran
    - Ou le clavier de votre ordinateur (touches 0-9, Entrée pour valider, Retour arrière pour effacer)
-5. Suivez vos progrès avec :
+6. Suivez vos progrès avec :
    - Les statistiques en temps réel
    - Votre série actuelle de bonnes réponses
    - Votre meilleur score
