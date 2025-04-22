@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.getElementById('game-container');
     const playButtons = document.querySelectorAll('.play-btn');
     const miniGames = document.querySelectorAll('.mini-game');
+    const correctSound = document.getElementById('correctSound');
+    const incorrectSound = document.getElementById('incorrectSound');
 
     // Gestion du thème
     const theme = localStorage.getItem('theme') || 'light';
@@ -14,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
+
+    function playSound(isCorrect) {
+        const sound = isCorrect ? correctSound : incorrectSound;
+        sound.currentTime = 0;
+        sound.play().catch(error => console.log('Erreur de lecture audio:', error));
+    }
 
     function showCelebration(emoji) {
         const celebration = document.createElement('div');
@@ -127,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 matchedPairs++;
                 pairsFound.textContent = matchedPairs;
                 showCelebration('🌟');
+                playSound(true);
         
                 if (matchedPairs === 8) {
                     clearInterval(timerInterval);
@@ -186,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 score += 10;
                 rushScore.textContent = score;
                 showCelebration('✨');
+                playSound(true);
         
                 if (selectedNumbers.length === currentNumbers.length) {
                     showCelebration('🎯');
@@ -196,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 rushScore.textContent = score;
                 tile.classList.add('animate__animated', 'animate__shakeX');
                 setTimeout(() => tile.classList.remove('animate__animated', 'animate__shakeX'), 500);
+                playSound(false);
             }
         }
 
@@ -275,19 +286,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (value === correct) {
                     input.style.color = 'var(--success-color)';
                     input.classList.add('success-animation');
+                    playSound(true);
                 } else {
                     input.style.color = 'var(--error-color)';
                     input.classList.remove('success-animation');
                     allCorrect = false;
+                    playSound(false);
                 }
             });
         
             if (allCorrect && inputs.length > 0) {
                 showCelebration('🧩');
                 setTimeout(() => {
+                    playSound(true);
                     alert(`Bravo ! Tu as complété le niveau ${currentLevel} !`);
                     currentLevel++;
                     puzzleLevel.textContent = currentLevel;
+
                     generatePuzzle();
                 }, 500);
             }
