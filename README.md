@@ -5,6 +5,14 @@ SenEduc est une application web interactive conçue pour aider les enfants à ap
 ## Nouveautés
 
 - 🎲 **Modes de difficulté** : Choisissez entre Facile, Moyen et Difficile pour ajuster la complexité des questions, permettant ainsi une expérience d'apprentissage personnalisée.
+  - 🎲 **Mini-jeux mathématiques** : Trois jeux interactifs pour apprendre en s'amusant :
+  - Memory Math : Trouve les paires d'opérations équivalentes
+  - Number Rush : Ordonne les nombres rapidement
+  - Math Puzzle : Résous des puzzles mathématiques
+- 🎮 **Guides de jeu** : Instructions claires et adaptées aux enfants
+- ✨ **Animations de réussite** : Effets visuels et célébrations pour motiver les enfants
+- ⏱️ **Mode chronométré** : Défi supplémentaire avec limite de temps
+
 
 ## Fonctionnalités
 

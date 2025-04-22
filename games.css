@@ -1,0 +1,258 @@
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.game-card p {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.play-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 20px 0;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Memory Game Styles */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card .front,
+.memory-card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.memory-card .front {
+    background: var(--primary-color);
+    color: white;
+}
+
+.memory-card .back {
+    background: var(--card-bg);
+    transform: rotateY(180deg);
+}
+
+/* Number Rush Styles */
+.number-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.number-tile {
+    width: 60px;
+    height: 60px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.number-tile:hover {
+    transform: scale(1.1);
+}
+
+.number-tile.correct {
+    background: var(--success-color);
+    color: white;
+}
+
+/* Math Puzzle Styles */
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.puzzle-cell {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.puzzle-cell input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1em;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.game-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 1.1em;
+}
+.game-guide {
+    background: var(--background-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.game-guide ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.game-guide li {
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.game-guide li:before {
+    content: "👉";
+    position: absolute;
+    left: 0;
+}
+
+.success-animation {
+    animation: success-pulse 0.5s ease-in-out;
+}
+
+@keyframes success-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.celebration {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4em;
+    z-index: 1000;
+    pointer-events: none;
+    animation: celebrate 1s ease-out forwards;
+}
+
+@keyframes celebrate {
+    0% { 
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .number-tile {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+    }
+}

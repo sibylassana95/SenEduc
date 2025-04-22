@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SenEduc - Mini-jeux Mathématiques</title>
+    <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="games.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="theme-switch">
+        <button id="theme-toggle">
+            <span class="light-icon">☀️</span>
+            <span class="dark-icon">🌙</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="animate__animated animate__bounce">Mini-jeux Mathématiques</h1>
+            <a href="index.html" class="back-btn">← Retour aux exercices</a>
+        </header>
+
+        <div class="games-grid">
+            <div class="game-card animate__animated animate__fadeIn">
+                <h2>Memory Math</h2>
+                <p>Trouve les paires d'opérations qui donnent le même résultat</p>
+                <div class="game-guide">
+                    <p>🎮 Comment jouer :</p>
+                    <ul>
+                        <li>Retourne deux cartes à la fois</li>
+                        <li>Trouve les opérations qui donnent le même résultat</li>
+                        <li>Par exemple : "2 + 3" et "5" forment une paire</li>
+                    </ul>
+                </div>
+                <button class="play-btn" data-game="memory">Jouer</button>
+            </div>
+
+            <div class="game-card animate__animated animate__fadeIn">
+                <h2>Number Rush</h2>
+                <p>Ordonne les nombres le plus rapidement possible</p>
+                <div class="game-guide">
+                    <p>🎮 Comment jouer :</p>
+                    <ul>
+                        <li>Clique sur les nombres dans l'ordre croissant</li>
+                        <li>Commence par le plus petit nombre</li>
+                        <li>Sois rapide pour gagner plus de points !</li>
+                    </ul>
+                </div>
+                <button class="play-btn" data-game="rush">Jouer</button>
+            </div>
+
+            <div class="game-card animate__animated animate__fadeIn">
+                <h2>Math Puzzle</h2>
+                <p>Complète les cases manquantes pour résoudre le puzzle</p>
+                <div class="game-guide">
+                    <p>🎮 Comment jouer :</p>
+                    <ul>
+                        <li>Remplis les cases vides avec les bons nombres</li>
+                        <li>Chaque niveau devient plus difficile</li>
+                        <li>Réfléchis bien avant de répondre !</li>
+                    </ul>
+                </div>
+                <button class="play-btn" data-game="puzzle">Jouer</button>
+            </div>
+        </div>
+
+        <div id="game-container" style="display: none;">
+            <div id="memory-game" class="mini-game" style="display: none;">
+                <div class="game-header">
+                    <h2>Memory Math</h2>
+                    <div class="game-stats">
+                        <span>Paires trouvées: <span id="pairs-found">0</span>/8</span>
+                        <span>Temps: <span id="memory-timer">0</span>s</span>
+                    </div>
+                </div>
+                <div class="memory-grid"></div>
+            </div>
+
+            <div id="number-rush" class="mini-game" style="display: none;">
+                <div class="game-header">
+                    <h2>Number Rush</h2>
+                    <div class="game-stats">
+                        <span>Score: <span id="rush-score">0</span></span>
+                        <span>Temps: <span id="rush-timer">60</span>s</span>
+                    </div>
+                </div>
+                <div class="number-container"></div>
+            </div>
+
+            <div id="math-puzzle" class="mini-game" style="display: none;">
+                <div class="game-header">
+                    <h2>Math Puzzle</h2>
+                    <div class="game-stats">
+                        <span>Niveau: <span id="puzzle-level">1</span></span>
+                    </div>
+                </div>
+                <div class="puzzle-grid"></div>
+            </div>
+        </div>
+    </div>
+    <script src="games.js"></script>
+</body>
+</html>

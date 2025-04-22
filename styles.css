@@ -37,6 +37,28 @@ body {
   color: var(--text-color);
   transition: all 0.3s ease;
 }
+.main-nav {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.nav-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  background: var(--primary-color);
+}
 
 .theme-switch {
   position: fixed;
